@@ -49,8 +49,8 @@ public class Arbol {
     
     public Nodo createTree() {
         String string = this.expresion;
-        Stack<Nodo> nodeStack = new Stack<>();
-        Stack<Character> characterStack = new Stack<>();
+        StackNodo stackNodo = new StackNodo();
+        StackCaracteres stackCaracter = new StackCaracteres();
         Nodo temp, temp1, temp2;
 
         int[] p = new int[123];
@@ -61,44 +61,44 @@ public class Arbol {
 
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == '(') {
-                characterStack.add(string.charAt(i));
+                stackCaracter.push(string.charAt(i));
             }
-            else if (Character.isDigit(string.charAt(i))) {
-                temp = addNodo(string.charAt(i));
-                nodeStack.add(temp);
+            else if (Character.isDigit(string.charAt(i)) /* || Character.isLetter(string.charAt(i)) */) {
+                temp = new Nodo(string.charAt(i));
+                stackNodo.push(temp);
             } else if (p[string.charAt(i)] > 0) {
-                while (!characterStack.isEmpty() 
-                && characterStack.peek() != '(' 
-                && ((string.charAt(i) != '^' 
-                && p[characterStack.peek()] >= p[string.charAt(i)]) || (string.charAt(i) == '^' 
-                && p[characterStack.peek()] > p[string.charAt(i)]))) {
-                    temp = addNodo(characterStack.peek());
-                    characterStack.pop();
-                    temp1 = nodeStack.peek();
-                    nodeStack.pop();
-                    temp2 = nodeStack.peek();
-                    nodeStack.pop();
+                while (!stackCaracter.isEmpty() && stackCaracter.peek() != '(' && ((string.charAt(i) != '^' && p[stackCaracter.peek()] >= p[string.charAt(i)]) || (string.charAt(i) == '^' && p[stackCaracter.peek()] > p[string.charAt(i)]))) {
+                    temp = new Nodo(stackCaracter.peek());
+                    stackCaracter.pop();
+                    temp1 = stackNodo.peek();
+                    stackNodo.pop();
+                    temp2 = stackNodo.peek();
+                    stackNodo.pop();
                     temp.setIzquierda(temp2);
                     temp.setDerecha(temp1);
-                    nodeStack.add(temp);
+                    stackNodo.push(temp);
                 }
-            characterStack.push(string.charAt(i));
+            stackCaracter.push(string.charAt(i));
             } else if (string.charAt(i) == ')') {
-                while (!characterStack.isEmpty() && characterStack.peek() != '(') {
-                    temp = addNodo(characterStack.peek());
-                    characterStack.pop();
-                    temp1 = nodeStack.peek();
-                    nodeStack.pop();
-                    temp2 = nodeStack.peek();
-                    nodeStack.pop();
+                while (!stackCaracter.isEmpty() && stackCaracter.peek() != '(') {
+                    temp = new Nodo(stackCaracter.peek());
+                    stackCaracter.pop();
+                    temp1 = stackNodo.peek();
+                    stackNodo.pop();
+                    temp2 = stackNodo.peek();
+                    stackNodo.pop();
                     temp.setIzquierda(temp2);
                     temp.setDerecha(temp1);
-                    nodeStack.add(temp);
+                    stackNodo.push(temp);
                 }
-                characterStack.pop();
+                stackCaracter.pop();
             }
         }
-        temp = nodeStack.peek();
+
+
+        /*RETORNAR VALOR NODO */
+        temp = stackNodo.peek();
+
         return temp;
     }
 
@@ -159,7 +159,7 @@ public class Arbol {
         separador += espacios;
         imprimirArbol(root.getDerecha(), separador);
         for (int i = espacios; i < separador; i++) {
-            System.out.print("-");
+            System.out.print(" ");
         }
         System.out.print(root.getDato() + "\n");
         imprimirArbol(root.getIzquierda(), separador);
