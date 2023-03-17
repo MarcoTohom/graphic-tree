@@ -49,8 +49,8 @@ public class Arbol {
     
     public Nodo createTree() {
         String string = this.expresion;
-        Stack<Nodo> nodeStack = new Stack<>();
-        Stack<Character> characterStack = new Stack<>();
+        StackTree nodeStack = new StackTree();
+        StackTree characterStack = new StackTree();
         Nodo temp, temp1, temp2;
 
         int[] p = new int[123];
@@ -61,44 +61,44 @@ public class Arbol {
 
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == '(') {
-                characterStack.add(string.charAt(i));
+                characterStack.push(string.charAt(i));
             }
             else if (Character.isDigit(string.charAt(i))) {
-                temp = addNodo(string.charAt(i));
-                nodeStack.add(temp);
+                temp = new Nodo(string.charAt(i));
+                nodeStack.push(temp.getDato());
             } else if (p[string.charAt(i)] > 0) {
-                while (!characterStack.isEmpty() 
-                && characterStack.peek() != '(' 
-                && ((string.charAt(i) != '^' 
-                && p[characterStack.peek()] >= p[string.charAt(i)]) || (string.charAt(i) == '^' 
-                && p[characterStack.peek()] > p[string.charAt(i)]))) {
-                    temp = addNodo(characterStack.peek());
+                while (!characterStack.isEmpty() && characterStack.peek() != '(' && ((string.charAt(i) != '^' && p[characterStack.peek()] >= p[string.charAt(i)]) || (string.charAt(i) == '^' && p[characterStack.peek()] > p[string.charAt(i)]))) {
+                    temp = new Nodo(characterStack.peek());
                     characterStack.pop();
-                    temp1 = nodeStack.peek();
+                    temp1.setDato(nodeStack.peek());
                     nodeStack.pop();
-                    temp2 = nodeStack.peek();
+                    temp2.setDato(nodeStack.peek());
                     nodeStack.pop();
                     temp.setIzquierda(temp2);
                     temp.setDerecha(temp1);
-                    nodeStack.add(temp);
+                    nodeStack.push(temp.getDato());
                 }
             characterStack.push(string.charAt(i));
             } else if (string.charAt(i) == ')') {
                 while (!characterStack.isEmpty() && characterStack.peek() != '(') {
-                    temp = addNodo(characterStack.peek());
+                    temp = new Nodo(characterStack.peek());
                     characterStack.pop();
-                    temp1 = nodeStack.peek();
+                    temp1.setDato(nodeStack.peek());
                     nodeStack.pop();
-                    temp2 = nodeStack.peek();
+                    temp2.setDato(nodeStack.peek());
                     nodeStack.pop();
                     temp.setIzquierda(temp2);
                     temp.setDerecha(temp1);
-                    nodeStack.add(temp);
+                    nodeStack.push(temp.getDato());
                 }
                 characterStack.pop();
             }
         }
-        temp = nodeStack.peek();
+
+
+        /*RETORNAR VALOR NODO */
+        temp.getDato(nodeStack.peek());
+
         return temp;
     }
 
