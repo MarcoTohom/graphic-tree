@@ -1,5 +1,5 @@
-public class StackTree {
-    NodeStack root = null;
+public class StackCaracteres {
+    NodeCaracter root = null;
     char cima;
 
 
@@ -8,7 +8,7 @@ public class StackTree {
     }
 
     public void push(char datoExpresion){
-        NodeStack newChar = new NodeStack(datoExpresion);
+        NodeCaracter newChar = new NodeCaracter(datoExpresion);
         if(isEmpty()){
             root = newChar;
         }else{
