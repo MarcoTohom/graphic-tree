@@ -14,6 +14,17 @@ public class Nodo {
         this.izquierda = null;
         this.derecha = null;
     } 
+
+    public int nodosCompletos(Nodo n) {
+        if (n == null)
+            return 0;
+        else {
+            if (n.izquierda != null && n.derecha != null)
+                return nodosCompletos(n.izquierda) + nodosCompletos(n.derecha) + 1;
+            return nodosCompletos(n.izquierda) + nodosCompletos(n.derecha);
+        }
+    }
+
     /* Setters y Getters */
     public void setDato(char valor) {
         this.dato = valor;
