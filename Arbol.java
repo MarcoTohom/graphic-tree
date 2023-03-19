@@ -63,7 +63,7 @@ public class Arbol {
             if (string.charAt(i) == '(') {
                 stackCaracter.push(string.charAt(i));
             }
-            else if (Character.isDigit(string.charAt(i)) /* || Character.isLetter(string.charAt(i)) */) {
+            else if (Character.isDigit(string.charAt(i))  || Character.isLetter(string.charAt(i))) {
                 temp = new Nodo(string.charAt(i));
                 stackNodo.push(temp);
             } else if (p[string.charAt(i)] > 0) {

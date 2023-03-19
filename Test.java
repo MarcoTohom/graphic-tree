@@ -3,7 +3,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import javax.swing.JFrame;
-public class main {
+
+public class Test {
     public static void main(String[] args) {
         String expresion = null;                
         System.out.print("Ingrese la expresion aritmetica: ");
@@ -13,7 +14,7 @@ public class main {
         }catch (IOException e){            
             e.printStackTrace();
         }
-        Arbol arbol = new Arbol(expresion); 
+        Arbol arbol = new Arbol(expresion);
         Lienzo lienzo = new Lienzo();
         Controlador objControlador = new Controlador(lienzo, arbol);
 
@@ -24,14 +25,5 @@ public class main {
         ventana.setSize(600, 600);
         ventana.setVisible(true);
 
-        System.out.print("Imprimir datos en preorden: ");
-        arbol.preorden();
-        System.out.print("Imprimir datos en inorden: ");
-        arbol.inorden();
-        System.out.print("Imprimir datos en postorden: ");
-        arbol.posorden();
-
-        System.out.print("Arbol de Expresion Aritmetica");
-        arbol.imprimir();
-    }   
+    }
 }
