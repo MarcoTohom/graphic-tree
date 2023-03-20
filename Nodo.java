@@ -58,20 +58,5 @@ public class Nodo {
         this.padre = padre;
     }
     
-    public String textoGraphviz(){
-        if(izquierda == null && derecha == null){
-            return String.valueOf(dato);
-        }else{
-            String texto = "";
-            if (izquierda!=null) {
-                texto = dato +"->"+ izquierda.textoGraphviz() + "\n";
-            } 
-            if(derecha != null){
-                texto = dato + "->" + derecha.textoGraphviz() + "\n";
-            }
-            return texto;
-        }
-    }
-
-
+    
 }
