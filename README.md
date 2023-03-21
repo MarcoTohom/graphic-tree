@@ -1,11 +1,29 @@
 
-![](https://infoeduca.org/wp-content/uploads/2022/07/mgalvez-removebg-preview.png)
+<p align="center">
+    <img src = "https://infoeduca.org/wp-content/uploads/2022/07/mgalvez-removebg-preview.png">
+</p>
 
-# Proyecto 1 Arboles de Expresion (grafico) 
+# **Proyecto 1 Arboles de Expresion (grafico)**
+Aplicación que recibe un texto con una expresión matemática limitada
+en sumas, restas, multiplicaciones, divisiones, potencias y raices. Como la siguiente expresión<div style="color: gray">a + b – (c – b) + e</div>
 
+Luego muestra los recorridos del árbol.
 
+Por último muestra el árbol de forma gráfica.
 
-### Capturas:
+## **Requerimientos**
+- JDK versión 8 o superior
+- Git versión 2 o superior
+
+## **Instalación**
+- Ingresar al repositorio
+- Hacer clic en el botón Code
+- Hacer clic en el botón para copiar código.
+<img src = "src/github.png">
+- Ingresar a la terminal de su computadora y clonar el repositorio con el siguiente documento
+<img src = "src/git clone.png">
+
+## **Documentación**
 ![Esta es una imagen de ejemplo](https://raw.githubusercontent.com/MarcoTohom/graphic-tree/b4525892baf36d5f73aa1c1553998fb3660257a1/img/Clase%20Arbol%201.1.png)
 
 
