@@ -24,18 +24,32 @@ Por último muestra el árbol de forma gráfica.
 <img src = "src/git clone.png">
 
 ## **Documentación**
-![Esta es una imagen de ejemplo](https://raw.githubusercontent.com/MarcoTohom/graphic-tree/b4525892baf36d5f73aa1c1553998fb3660257a1/img/Clase%20Arbol%201.1.png)
+
+## Capturas de funcionamiento
+**Solicitud de ingreso de datos.**
+
+<img src="img/Solicitud de datos.png">
+
+**Ingreso de datos para la validacion en el árbol**
+
+<img src="img/Ingreso de Datos.png">
+
+**Impresion del árbol en terminal y recorridos**
+
+<img src = "img/Impresion de recorridos y arbol en terminal.png">
+
+**Expresion del arbol en forma grafica**
+
+<img src ="img/Arbol graficamente.png"> 
 
 
+<br>
+<br>
+<br>
+<br>
 
-
-
-
-
-
-
-
-# Integrantes:
+#
+## Integrantes:
 - **Marco Antonio Tohom** - _7690-15-24753_ - [MarcoTohom](https://github.com/MarcoTohom)
 - **Kevin Gustavo Cruz** - _7690-10-144_ - [kcruzs](https://github.com/kcruzs)
 - **Vanni Alcantara** - _7690-18-1298_ - [Vanii-UMG](https://github.com/Vanii-UMG)
